@@ -1,20 +1,19 @@
 <script lang="ts">
     import '../app.css';
     import Logo from '$lib/images/MdePaula-Logo.png';
-	import Button from '$lib/components/header/button.svelte';
+	import Icon from '@iconify/svelte';
 
     let { children } = $props();
 </script>
 
 <header>
-    <div>
-        <img src={Logo} alt="Logo" width="220px"/>
-    </div>
-    <div>
-        <Button text="Serviços" icon="fluent:box-toolbox-24-filled"/>
-        <Button text="Galeria" icon="fluent:board-split-24-filled"/>
-        <Button text="Feedback's" icon="fluent:person-feedback-24-filled"/>
-        <!-- <Button text="Contatos" icon="fluent:call-24-filled"/> -->
+    <button id="menu-button">
+        <Icon icon="line-md:menu" style="font-size: 16px" />
+    </button>
+    <img src={Logo} alt="Logo"/>
+    <div id="header-links">
+        {@render HeaderLinks("https://api.whatsapp.com/send?phone=11995943124", "ic:baseline-whatsapp", "WhatsApp")}
+        {@render HeaderLinks("https://www.instagram.com/mdepaula1990", "mdi:instagram", "Instagram")}
     </div>
 </header>
 
@@ -22,44 +21,63 @@
     {@render children()}
 </main>
 
-<footer>
-    <div>Marcenaria de Móveis Planejados | MdePaula &copy; {new Date().getFullYear()}</div>
-    <div></div>
-</footer>
+{#snippet HeaderLinks(href: string, icon: string, title: string)}
+    <a {href} target="_blank" {title}>
+        <Icon {icon}/>
+    </a>
+{/snippet}
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
-
-    :global(:root) {
-        --font-family: 'Courier New', Courier, monospace;
-        --color-1: #9f6239;
-        --color-2: #bd7c52;
-        --color-3: #dc986c;
-        --color-4: #fbb487;
-        --color-5: #ffd1a3;
-    }
-
     header {
+        padding-left: 10px;
         display: flex;
-        padding: 14px;
-        justify-content: space-between;
         align-items: center;
         height: 8vh;
+        z-index: 999;
+    }
+
+    header img {
+        width: 80px;
+    }
+
+    header #header-links {
+        padding-right: 20px;
+        display: flex;
+        gap: 10px;
+        margin-left: auto;
+    }
+
+    header #header-links a {
+        display: flex; 
+        padding: 4px;
+        border-radius: 30%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    header #header-links a[title="WhatsApp"] {
+        background: linear-gradient(to right, #25D366, #128C7E);
+    }
+
+    header #header-links a[title="Instagram"] {
+        background: linear-gradient(to right, #F58529, #DD2A7B, #8134AF);
     }
 
     main {
-        padding-left: 16px;
-        padding-top: 25px;
+        padding: 12px
+    }
+    
+    #menu-button {    
+        cursor: pointer;
+        display: flex;    
+        padding: 4px;
+        border-radius: 30%;
+        color: var(--color-1);
+        margin-right: 6px;
+        margin-top: 1px;
+        background: transparent;
     }
 
-    footer {
-        font-family: figtree;
-        min-height: 40px;
-        display: flex;
-        align-items: center;
-        position: fixed;
-        bottom: 0;
-        padding: 8px;
-    }
 </style>

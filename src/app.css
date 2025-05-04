@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
 /* Reset CSS */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -11,7 +14,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, button {
     margin: 0;
     padding: 0;
     border: 0;
@@ -56,4 +59,14 @@ html, body{
 
 b {
     font-weight: 600;
+}
+
+/* App styles */
+:root {
+    --font-family: 'Courier New', Courier, monospace;
+    --color-1: #9f6239;
+    --color-2: #bd7c52;
+    --color-3: #dc986c;
+    --color-4: #fbb487;
+    --color-5: #ffd1a3;
 }
