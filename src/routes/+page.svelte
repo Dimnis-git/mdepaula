@@ -94,10 +94,10 @@
 	}
 </script>
 
-<section id="hero">
-	<Icon icon="fluent-emoji:sparkles" style=" font-size: 28px" />
-	<h1 id="title">Transformando ideias em móveis que fazem parte da sua história.</h1>
-	<Icon icon="fluent-emoji:couch-and-lamp" style=" font-size: 28px" />
+<section class="flex justify-center items-center gap-4">
+	<Icon icon="fluent-emoji:sparkles" class="text-4xl"/>
+	<span class="font-cal text-center  lg:text-2xl max-w-sm lg:max-w-fit">Transformando ideias em móveis que fazem parte da sua história.</span>
+	<Icon icon="fluent-emoji:couch-and-lamp" class="text-4xl"/>
 </section>
 
 <div id="galery">
@@ -216,12 +216,27 @@
 		gap: 20px;
 	}
 
-	#title {
+	/* #title {
+		@apply
 		font-family: Cal Sans;
-		font-size: large;
 		text-align: center;
-		max-width: 280px;
+		font-size: xx-large;
+	} */
+
+	.hero-icon {
+		font-size: xx-large;
 	}
+/* 
+	@media only screen and (max-width: 600px) {
+		#title {
+			font-family: Cal Sans;
+			font-size: large;
+			text-align: center;
+			max-width: 240px;
+		}
+	} */
+
+
 
 	.card {
 		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
