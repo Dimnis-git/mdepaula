@@ -1,6 +1,6 @@
 <script lang="ts">
+	import Header from '$lib/components/layout/header.svelte';
 	import '../app.css';
-	import Logo from '$lib/images/MdePaula-Logo.png';
 	import Icon from '@iconify/svelte';
 
 	let { children } = $props();
@@ -9,17 +9,8 @@
 <svelte:head>
 	<title>MdePaula | Marcenaria</title>
 </svelte:head>
-<header>
-	<img src={Logo} alt="Logo" />
-	<div id="header-links">
-		{@render HeaderLinks(
-			'https://api.whatsapp.com/send?phone=11995943124',
-			'ic:baseline-whatsapp',
-			'WhatsApp'
-		)}
-		{@render HeaderLinks('https://www.instagram.com/mdepaula1990', 'mdi:instagram', 'Instagram')}
-	</div>
-</header>
+
+<Header />
 
 <main>
 	{@render children()}
