@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { quintOut } from "svelte/easing";
-	import { slide } from "svelte/transition";
+	import { fly } from "svelte/transition";
 	import Icon from "./icon.svelte";
 
 	const services = $state([
@@ -59,12 +59,12 @@
 
 <h2>Nosso serviços:</h2>
 
-<ul class="mt-4" bind:this={listElement}>
+<ul class="mt-4 xl:px-96" bind:this={listElement}>
 	{#each services as item, i (i)}
 		{#if showItems}
 			<li
 				class="mb-6 rounded-3xl border border-gray-200 bg-white p-6 font-figtree shadow-xl w-full"
-				in:slide={{ delay: i * 1000, duration: 1000, easing: quintOut, axis: 'x' }}
+				in:fly={{ delay: i * 600, duration: 1000, easing: quintOut }}
 			>
                 <header class="flex items-center gap-3 mb-2">
                     <Icon icon={item.icon} class="text-xl"/>

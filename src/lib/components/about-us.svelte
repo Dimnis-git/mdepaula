@@ -49,12 +49,12 @@
 
 <h2>Sobre nos:</h2>
 
-<ul class="mt-4" bind:this={listElement}>
+<ul class="mt-4 xl:px-96" bind:this={listElement}>
 	{#each aboutUs as item, i (i)}
 		{#if showItems}
 			<li
 				class="mb-6 rounded-3xl border border-gray-200 bg-white p-6 font-figtree shadow-xl w-full"
-				in:scale={{ delay: i * 400, duration: 1000, easing: quintOut }}
+				in:scale={{ delay: i * 600, duration: 1000, easing: quintOut }}
 			>
 				<h3 class="mb-2 text-lg font-semibold">{item.title}</h3>
 				<p class="text-current/70">{item.subtitle}</p>

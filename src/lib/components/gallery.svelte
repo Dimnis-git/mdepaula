@@ -44,8 +44,8 @@
 
 <h2>Galeria:</h2>
 
-<div class="mt-6">
-	<div class="grid gap-10 lg:grid-cols-4 lg:grid-rows-2">
+<div class="mt-6 xl:px-96">
+	<div class="grid xl:grid-cols-2 gap-8">
 		{@render GalleryItem('mdi:kitchen-counter-outline', 'Cozinhas', galleryImages.kitchen)}
 		{@render GalleryItem('mdi:sofa-outline', 'Salas de Estar', galleryImages.livingroom)}
 		{@render GalleryItem('mdi:bed-king-outline', 'Quartos', galleryImages.bedroom)}
@@ -62,7 +62,7 @@
 )}
 	{@const totalImages = images.images.length}
 	<div
-		class="rounded-3x flex h-[600px] touch-pan-y flex-col drop-shadow-xl drop-shadow-primary select-none lg:w-96"
+		class="rounded-3x flex h-[600px] touch-pan-y flex-col drop-shadow-xl drop-shadow-primary select-none"
 		ontouchstart={(e) => {
 			images.touchStartX = e.touches[0].clientX;
 		}}
@@ -98,7 +98,7 @@
 			<Icon {icon} class="text-lg" />
 			<p class=" font-figtree font-medium">{text}</p>
 		</header>
-		<main class="relative h-full rounded-b-3xl">
+		<main class="relative w-full h-full rounded-b-3xl">
 			{#key images.currentImageIndex}
 				<button class="absolute h-full w-full cursor-pointer rounded-b-3xl">
 					<img
@@ -106,7 +106,7 @@
 						out:fly={{ duration: 750, x: swipe === 'right' ? -20 : 20, easing: backOut }}
 						src={images.images[images.currentImageIndex]}
 						alt="{text} - Imagem {images.currentImageIndex + 1}"
-						class="pointer-events-none h-full cursor-pointer touch-auto rounded-b-3xl"
+						class="pointer-events-none w-full h-full cursor-pointer touch-auto rounded-b-3xl"
 					/>
 				</button>
 			{/key}

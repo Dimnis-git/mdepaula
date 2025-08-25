@@ -1,7 +1,7 @@
-<footer class="p-1 text-center font-figtree text-xs">
+<footer class="p-1 text-center font-figtree text-xs mt-6">
 	<button
 		type="button"
-		class="mb-2 h-8 border-black pt-3 text-sm font-medium hover:border-b"
+		class="mb-2 h-8 border-black pt-3 text-sm font-medium hover:border-b cursor-pointer"
 		onclick={() =>
 			window.scrollTo({
                 top: 0,

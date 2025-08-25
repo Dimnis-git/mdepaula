@@ -22,7 +22,7 @@
 	});
 </script>
 
-<div class="rounded-3xl *:rounded-3xl drop-shadow-xl drop-shadow-primary h-[80vh]">
+<div class="rounded-3xl *:rounded-3xl drop-shadow-xl drop-shadow-primary h-[80vh] xl:w-7/12 xl:mx-auto">
 	<div id="carousel" class="relative overflow-hidden h-full w-full">
 		{#each images as image, index}
 			<img
