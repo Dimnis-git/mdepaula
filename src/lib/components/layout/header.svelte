@@ -18,7 +18,7 @@
 </header>
 
 {#snippet HeaderLinks(href: string, icon: string, title: string)}
-	<a {href} {title} class="p-1.5 lg:p-3 rounded-full text-white drop-shadow-sm {title === 'Instagram' ? 'bg-gradient-to-r from-purple-500 to-pink-500 drop-shadow-pink-400' : 'bg-green-500 drop-shadow-green-400'}">
+	<button {title} class="z-50 cursor-pointer w-8 h-8 lg:h-16 lg:w-16 flex justify-center items-center rounded-full text-white drop-shadow-sm {title === 'Instagram' ? 'bg-gradient-to-r from-purple-500 to-pink-500 drop-shadow-pink-400' : 'bg-green-500 drop-shadow-green-400'}" onclick={() => window.open(href, '_blank', 'noopener')}>
 		<Icon {icon} class="text-lg lg:text-4xl"/>
-	</a>
+	</button>
 {/snippet}

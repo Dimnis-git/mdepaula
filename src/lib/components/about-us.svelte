@@ -28,31 +28,26 @@
 		const observer = new IntersectionObserver(
 			(entries) => {
 				if (entries[0].isIntersecting) {
-					console.info('To aqui');
 					showItems = true;
 					observer.disconnect();
-				} else {
-					console.error('Sumi');
-				}
+				} 
 			},
 			{
 				threshold: 0.1
 			}
 		);
 
-		if (listElement) {
+		if (listElement)
 			observer.observe(listElement);
-		}
 
 		return () => {
-			if (listElement) {
+			if (listElement) 
 				observer.unobserve(listElement);
-			}
 		};
 	});
 </script>
 
-<h2>Sobré nos:</h2>
+<h2>Sobre nos:</h2>
 
 <ul class="mt-4" bind:this={listElement}>
 	{#each aboutUs as item, i (i)}
