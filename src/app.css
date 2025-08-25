@@ -1,21 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
 @import 'tailwindcss';
 
 @theme {
 	--font-cal: 'Cal Sans', sans-serif;
+	--font-figtree: 'Figtree', sans-serif;
+	--color-primary: #9f6239;
+	--color-second: #bd7c52;
+	--color-third: #dc986c;
+	--color-fourth: #fbb487;
+	--color-fifth: #ffd1a3;
 }
 
-b {
-	font-weight: 600;
-}
-
-/* App styles */
-:root {
-	--font-family: 'Courier New', Courier, monospace;
-	--color-1: #9f6239;
-	--color-2: #bd7c52;
-	--color-3: #dc986c;
-	--color-4: #fbb487;
-	--color-5: #ffd1a3;
+h2 {
+	@apply mt-10 text-center font-medium font-cal text-xl;
 }

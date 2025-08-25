@@ -1,38 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import Example1 from '$lib/images/examples/1.jpeg';
-	import Example2 from '$lib/images/examples/2.jpeg';
-	import Example3 from '$lib/images/examples/3.jpeg';
-	import Example4 from '$lib/images/examples/4.jpeg';
+
 	import Icon from '@iconify/svelte';
-
-	let images = [Example1, Example2, Example3, Example4];
-
-	let currentImageIndex = $state(0);
-
-	let interval: ReturnType<typeof setInterval>;
-
-	const aboutUs = [
-		{
-			title: 'Quem nós somos?',
-			subtitle:
-				'Com mais de 30 anos de tradição no mercado de marcenaria, a Mdepaula é especialista em móveis planejados em MDF, oferecendo soluções sob medida que transformam ambientes com sofisticação, funcionalidade e durabilidade.',
-			trigger: true
-		},
-		{
-			title: 'Como trabalhamos?',
-			subtitle:
-				'Desde o início da nossa trajetória, mantemos o compromisso com a qualidade artesanal, o atendimento personalizado e a entrega de projetos que aliam design inteligente e materiais de primeira linha.',
-			trigger: false
-		},
-		{
-			title: 'O que entregamos?',
-			subtitle:
-				'Cada móvel planejado pela Mdepaula é pensado para refletir o seu estilo de vida, suas necessidades e o seu sonho. Atuamos em projetos residenciais e comerciais, sempre priorizando o cuidado com os detalhes, o acabamento impecável e a satisfação de cada cliente.',
-			trigger: false
-		}
-	];
+	import MainTitle from '$lib/components/main-title.svelte';
+	import MainCarrousel from '$lib/components/main-carrousel.svelte';
+	import AboutUs from '$lib/components/about-us.svelte';
+	import Footer from '$lib/components/layout/footer.svelte';
 
 	const services = [
 		{
@@ -61,20 +35,6 @@
 		}
 	];
 
-	onMount(() => {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-		window.addEventListener('scroll', handleScroll);
-
-		interval = setInterval(() => {
-			currentImageIndex = (currentImageIndex + 1) % images.length;
-		}, 3000);
-
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-			clearInterval(interval);
-		};
-	});
-
 	let isScrolledAboutUs = $state(false);
 	let isScrolledServices = $state(false);
 
@@ -94,44 +54,24 @@
 	}
 </script>
 
-<section class="flex justify-center items-center gap-4">
-	<Icon icon="fluent-emoji:sparkles" class="text-4xl"/>
-	<span class="font-cal text-center  lg:text-2xl max-w-sm lg:max-w-fit">Transformando ideias em móveis que fazem parte da sua história.</span>
-	<Icon icon="fluent-emoji:couch-and-lamp" class="text-4xl"/>
-</section>
+<MainTitle />
 
-<div id="galery">
-	<div id="carousel">
-		{#each images as image, index}
-			<img
-				src={image}
-				alt={`Image ${currentImageIndex + 1}`}
-				class:active={index === currentImageIndex}
-			/>
-		{/each}
-	</div>
-</div>
+<MainCarrousel />
 
-<h3 id="sub-title">Sobre nós:</h3>
+<AboutUs />
 
-{#each aboutUs as item, i (i)}
-	<div
-		id="card-about-us"
-		class="card"
-		class:visible={isScrolledAboutUs}
-		style="transform: translateX({isScrolledAboutUs ? 0 : 100}px); opacity: {isScrolledAboutUs
-			? 1
-			: 0}; transition: transform 1.75s ease, opacity 0.5s ease;"
-	>
-		<header>
-			<h3>{item.title}</h3>
-		</header>
-		<p>{item.subtitle}</p>
-	</div>
-{/each}
+<Footer />
 
-<h3 id="sub-title">Nossos serviços:</h3>
+<!-- {@render SubTitle('Nossos serviços:')}
 
+<ul class="services">
+	{#each services as service, i (i)}
+		<li>
+		</li>
+	{/each}
+</ul> -->
+
+<!-- 
 {#each services as item, i (i)}
 	<div
 		id={i === 0 ? 'card-services' : ''}
@@ -150,11 +90,11 @@
 			<p>{item.subtitle}</p>
 		</div>
 	</div>
-{/each}
+{/each} -->
 
-<h3 id="sub-title">Galeria:</h3>
+<!-- <h3 id="sub-title">Galeria:</h3> -->
 
-<div class="card-galery">
+<!-- <div class="card-galery">
 	<header>
 		<span>Cozinhas</span>
 	</header>
@@ -167,77 +107,13 @@
 			<Icon icon="material-symbols:arrow-circle-right"/>
 		</button>
 	</div>
-</div>
+</div> -->
+
+{#snippet SubTitle(text: string)}
+	<h3>{text}</h3>
+{/snippet}
 
 <style>
-	#galery,
-	#carousel {
-		border-radius: 32px;
-	}
-
-	#galery {
-		box-shadow: 3px 0px 59px 3px rgba(159, 98, 57, 0.68);
-		-webkit-box-shadow: 3px 0px 59px 3px rgba(159, 98, 57, 0.68);
-		-moz-box-shadow: 3px 0px 59px 3px rgba(159, 98, 57, 0.68);
-		user-select: auto;
-		margin-top: 10px;
-		height: 80vh;
-		user-select: none !important;
-	}
-
-	#carousel {
-		position: relative;
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-	}
-
-	#carousel img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		opacity: 0;
-		transition: opacity 1s ease-in-out;
-		touch-action: pan-y;
-	}
-
-	#carousel img.active {
-		opacity: 1;
-	}
-
-	#hero {
-		margin-bottom: 20px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 20px;
-	}
-
-	/* #title {
-		@apply
-		font-family: Cal Sans;
-		text-align: center;
-		font-size: xx-large;
-	} */
-
-	.hero-icon {
-		font-size: xx-large;
-	}
-/* 
-	@media only screen and (max-width: 600px) {
-		#title {
-			font-family: Cal Sans;
-			font-size: large;
-			text-align: center;
-			max-width: 240px;
-		}
-	} */
-
-
-
 	.card {
 		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 		background: white;
@@ -268,13 +144,13 @@
 		color: #555;
 	}
 
-	#sub-title {
+	/* #sub-title {
 		font-family: Cal Sans;
 		text-align: center;
 		font-size: 1.5rem;
 		margin-top: 60px;
 		margin-bottom: 30px;
-	}
+	} */
 
 	.card-services {
 		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
