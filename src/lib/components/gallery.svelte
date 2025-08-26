@@ -7,6 +7,7 @@
 </script>
 
 <h2>Galeria:</h2>
+<p class="font-figtree text-sm text-center lg:hidden">Deslize para o lado para ver as fotos</p>
 
 <div class="mt-6 xl:px-96">
 	<div class="grid gap-8 xl:grid-cols-1">
