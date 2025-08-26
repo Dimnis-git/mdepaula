@@ -6,7 +6,7 @@
 	import Example4 from '$lib/images/carrousel/example4.jpeg?enhanced';
 	import Example5 from '$lib/images/carrousel/example5.jpeg?enhanced';
 	import Example6 from '$lib/images/carrousel/example6.jpeg?enhanced';
-	import Example7 from '$lib/images/carrousel/example7.jpeg?enhanced';
+	import Example7 from '$lib/images/carrousel/saladeestar.jpg?enhanced';
 	import Example8 from '$lib/images/carrousel/ilharipada.jpg?enhanced';
 	let images = [
 		{
@@ -35,7 +35,7 @@
 		},
 		{
 			image: Example7,
-			alt: 'Hack com armários de madeira clara e nichos decorativos'
+			alt: 'sala de estar acochegante, com painel amadeirado e hack personalizado'
 		},
 	{
 		image:Example8,
