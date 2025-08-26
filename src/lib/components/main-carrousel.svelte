@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Example1 from '$lib/images/carrousel/example1.jpeg';
-	import Example2 from '$lib/images/carrousel/example2.jpeg';
-	import Example3 from '$lib/images/carrousel/example3.jpeg';
-	import Example4 from '$lib/images/carrousel/example4.jpeg';
-	import Example5 from '$lib/images/carrousel/example5.jpeg';
-	import Example6 from '$lib/images/carrousel/example6.jpeg';
-	import Example7 from '$lib/images/carrousel/example7.jpeg';
+	import Example1 from '$lib/images/carrousel/example1.jpeg?enhanced';
+	import Example2 from '$lib/images/carrousel/example2.jpeg?enhanced';
+	import Example3 from '$lib/images/carrousel/example3.jpeg?enhanced';
+	import Example4 from '$lib/images/carrousel/example4.jpeg?enhanced';
+	import Example5 from '$lib/images/carrousel/example5.jpeg?enhanced';
+	import Example6 from '$lib/images/carrousel/example6.jpeg?enhanced';
+	import Example7 from '$lib/images/carrousel/example7.jpeg?enhanced';
 	
 	let images = [
 		{
@@ -54,10 +54,10 @@
 	});
 </script>
 
-<div class="rounded-3xl *:rounded-3xl drop-shadow-xl drop-shadow-primary h-[80vh] xl:w-7/12 xl:mx-auto">
+<div class="rounded-3xl *:rounded-3xl drop-shadow-xl drop-shadow-primary h-[80vh] lg:px-96">
 	<div id="carousel" class="relative overflow-hidden h-full w-full">
 		{#each images as image, index}
-			<img
+			<enhanced:img
 				src={image.image}
 				alt={image.alt}
 				class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out pointer-events-none touch-auto"
