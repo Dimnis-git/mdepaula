@@ -55,12 +55,12 @@
 </script>
 
 <div class="rounded-3xl *:rounded-3xl drop-shadow-xl drop-shadow-primary h-[80vh] lg:px-96">
-	<div id="carousel" class="relative overflow-hidden h-full w-full">
+	<div class="relative overflow-hidden h-full w-full rounded-3xl">
 		{#each images as image, index}
 			<enhanced:img
 				src={image.image}
 				alt={image.alt}
-				class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out pointer-events-none touch-auto"
+				class="rounded-3xl absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out pointer-events-none touch-auto"
 				class:opacity-100={index === currentImageIndex}
 				class:opacity-0={index !== currentImageIndex}
 			/>
