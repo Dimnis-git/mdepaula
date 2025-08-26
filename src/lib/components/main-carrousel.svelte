@@ -7,7 +7,7 @@
 	import Example5 from '$lib/images/carrousel/example5.jpeg?enhanced';
 	import Example6 from '$lib/images/carrousel/example6.jpeg?enhanced';
 	import Example7 from '$lib/images/carrousel/example7.jpeg?enhanced';
-	
+	import Example8 from '$lib/images/carrousel/ilharipada.jpg?enhanced';
 	let images = [
 		{
 			image: Example1,
@@ -36,7 +36,11 @@
 		{
 			image: Example7,
 			alt: 'Hack com armários de madeira clara e nichos decorativos'
-		}
+		},
+	{
+		image:Example8,
+		alt: 'ilha ripada com curva na cor carvalho'
+	}
 	];
 
 	let currentImageIndex = $state(0);
