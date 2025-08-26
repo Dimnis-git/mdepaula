@@ -1,41 +1,38 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
-	import Example1 from '$lib/images/examples/1.jpeg';
-	import Example2 from '$lib/images/examples/2.jpeg';
-	import Example3 from '$lib/images/examples/3.jpeg';
 	import Icon from './icon.svelte';
+	import { fly } from 'svelte/transition';
 	import { backOut } from 'svelte/easing';
 
 	let galleryImages = $state({
 		kitchen: {
 			currentImageIndex: 0,
 			touchStartX: 0,
-			images: [Example1, Example2, Example3]
+			images: []
 		},
 		livingroom: {
 			currentImageIndex: 0,
 			touchStartX: 0,
-			images: [Example2, Example3, Example1]
+			images: []
 		},
 		bedroom: {
 			currentImageIndex: 0,
 			touchStartX: 0,
-			images: [Example3, Example1, Example2]
+			images: []
 		},
 		tables: {
 			currentImageIndex: 0,
 			touchStartX: 0,
-			images: [Example1, Example3, Example2]
+			images: []
 		},
 		closet: {
 			currentImageIndex: 0,
 			touchStartX: 0,
-			images: [Example1, Example3, Example2]
+			images: []
 		},
 		desk: {
 			currentImageIndex: 0,
 			touchStartX: 0,
-			images: [Example1, Example3, Example2]
+			images: []
 		}
 	});
 

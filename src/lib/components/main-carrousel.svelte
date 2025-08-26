@@ -1,17 +1,49 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-    import Example1 from '$lib/images/examples/1.jpeg';
-	import Example2 from '$lib/images/examples/2.jpeg';
-	import Example3 from '$lib/images/examples/3.jpeg';
-	import Example4 from '$lib/images/examples/4.jpeg';
+	import Example1 from '$lib/images/carrousel/example1.jpeg';
+	import Example2 from '$lib/images/carrousel/example2.jpeg';
+	import Example3 from '$lib/images/carrousel/example3.jpeg';
+	import Example4 from '$lib/images/carrousel/example4.jpeg';
+	import Example5 from '$lib/images/carrousel/example5.jpeg';
+	import Example6 from '$lib/images/carrousel/example6.jpeg';
+	import Example7 from '$lib/images/carrousel/example7.jpeg';
+	
+	let images = [
+		{
+			image: Example1,
+			alt: 'Escritório planejado com móveis de madeira clara e detalhes em branco, incluindo uma mesa ampla, estantes embutidas e iluminação moderna.'
+		},
+		{
+			image: Example2,
+			alt: 'Cozinha moderna com armários planejados em tons de cinza e branco, bancada de mármore e eletrodomésticos embutidos, criando um ambiente funcional e elegante.'
+		},
+		{
+			image: Example3,
+			alt: 'Quarto planejado com móveis sob medida em madeira escura, incluindo uma cama king size, guarda-roupa embutido e iluminação suave, proporcionando um ambiente aconchegante.'
+		},
+		{
+			image: Example4,
+			alt: 'Sala de estar com estantes planejadas em madeira clara, integrando espaço para TV, livros e decoração, criando um ambiente organizado e moderno.'
+		},
+		{
+			image: Example5,
+			alt: 'Banheiro planejado com armários sob medida em tons neutros, pia dupla e espelho grande, oferecendo funcionalidade e estilo.'
+		},
+		{
+			image: Example6,
+			alt: 'Closet planejado com prateleiras ajustáveis, gavetas e espaço para roupas e acessórios, tudo em um design elegante e eficiente.'
+		},
+		{
+			image: Example7,
+			alt: 'Área de serviço planejada com armários superiores e inferiores, bancada para passar roupas e espaço para eletrodomésticos, otimizando o uso do espaço.'
+		}
+	];
 
-    let images = [Example1, Example2, Example3, Example4];
-
-    let currentImageIndex = $state(0);
+	let currentImageIndex = $state(0);
 
 	let interval: ReturnType<typeof setInterval>;
 
-    onMount(() => {
+	onMount(() => {
 		interval = setInterval(() => {
 			currentImageIndex = (currentImageIndex + 1) % images.length;
 		}, 4000);
@@ -26,29 +58,12 @@
 	<div id="carousel" class="relative overflow-hidden h-full w-full">
 		{#each images as image, index}
 			<img
-				src={image}
-				alt={`Image ${currentImageIndex + 1}`}
-				class:active={index === currentImageIndex}
+				src={image.image}
+				alt={image.alt}
+				class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out pointer-events-none touch-auto"
+				class:opacity-100={index === currentImageIndex}
+				class:opacity-0={index !== currentImageIndex}
 			/>
 		{/each}
 	</div>
 </div>
-
-<style>
-	#carousel img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		opacity: 0;
-		transition: opacity 1s ease-in-out;
-		touch-action: auto;
-		pointer-events: none;
-	}
-
-	#carousel img.active {
-		opacity: 1;
-	}
-</style>
