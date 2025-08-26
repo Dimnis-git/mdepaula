@@ -7,6 +7,11 @@
 	import Gallery from '$lib/components/gallery.svelte';
 </script>
 
+<svelte:head>
+	<title>Marcenaria de Paula - Móveis Planejados em São Paulo</title>
+	<meta name="description" content="Especialistas em cozinhas, quartos e móveis sob medida. Transforme sua casa com a Marcenaria de Paula. Orçamento sem compromisso." />
+</svelte:head>
+		
 <MainTitle />
 
 <MainCarrousel />
