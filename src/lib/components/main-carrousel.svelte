@@ -11,31 +11,31 @@
 	let images = [
 		{
 			image: Example1,
-			alt: 'Escritório planejado com móveis de madeira clara e detalhes em branco, incluindo uma mesa ampla, estantes embutidas e iluminação moderna.'
+			alt: 'Escritório planejado com móveis de madeira clara, cadeira preta e decoração moderna.'
 		},
 		{
 			image: Example2,
-			alt: 'Cozinha moderna com armários planejados em tons de cinza e branco, bancada de mármore e eletrodomésticos embutidos, criando um ambiente funcional e elegante.'
+			alt: 'Cozinha planejada com armários brancos, bancada de madeira e eletrodomésticos modernos.'
 		},
 		{
 			image: Example3,
-			alt: 'Quarto planejado com móveis sob medida em madeira escura, incluindo uma cama king size, guarda-roupa embutido e iluminação suave, proporcionando um ambiente aconchegante.'
+			alt: 'Cozinha planejada com armários de madeira escura, ilha central e iluminação embutida.'
 		},
 		{
 			image: Example4,
-			alt: 'Sala de estar com estantes planejadas em madeira clara, integrando espaço para TV, livros e decoração, criando um ambiente organizado e moderno.'
+			alt: 'Quarto infantil planejado com cama baixa, prateleiras coloridas e decoração lúdica.'
 		},
 		{
 			image: Example5,
-			alt: 'Banheiro planejado com armários sob medida em tons neutros, pia dupla e espelho grande, oferecendo funcionalidade e estilo.'
+			alt: 'Sala de estar planejada, estante de madeira e decoração aconchegante.'
 		},
 		{
 			image: Example6,
-			alt: 'Closet planejado com prateleiras ajustáveis, gavetas e espaço para roupas e acessórios, tudo em um design elegante e eficiente.'
+			alt: 'Banheiro planejado com armários madeira escura, pia de mármore e espelho grande.'
 		},
 		{
 			image: Example7,
-			alt: 'Área de serviço planejada com armários superiores e inferiores, bancada para passar roupas e espaço para eletrodomésticos, otimizando o uso do espaço.'
+			alt: 'Hack com armários de madeira clara e nichos decorativos'
 		}
 	];
 
