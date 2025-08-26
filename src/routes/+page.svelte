@@ -9,7 +9,8 @@
 
 <svelte:head>
 	<title>Marcenaria de Paula - Móveis Planejados em São Paulo</title>
-	<meta name="description" content="Especialistas em cozinhas, quartos e móveis sob medida. Transforme sua casa com a Marcenaria de Paula. Orçamento sem compromisso." />
+	<meta name="description" content="Marcenaria especialistas em cozinhas, quartos, móveis, escritórios e armários sob medida em São Paulo. Transforme sua casa com a Marcenaria de Paula." />
+	<meta name="keywords" content="marcenaria, paula, cozinhas, quartos, móveis, mdf, armários, planejados, sob medida, escritório, São Paulo" />
 </svelte:head>
 		
 <MainTitle />
