@@ -64,7 +64,7 @@
 		{#if showItems}
 			<li
 				class="mb-6 rounded-3xl border border-gray-200 bg-white p-6 font-figtree shadow-xl w-full"
-				in:fly={{ delay: i * 600, duration: 1000, easing: quintOut }}
+				in:fly={{ delay: i * 300, duration: 1000, easing: quintOut }}
 			>
                 <header class="flex items-center gap-3 mb-2">
                     <Icon icon={item.icon} class="text-xl"/>

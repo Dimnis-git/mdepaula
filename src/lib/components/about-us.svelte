@@ -52,9 +52,9 @@
 	});
 </script>
 
-<h2>Sobre nos:</h2>
+<h2>Sobre nós:</h2>
 
-<ul class="mt-4 xl:px-96" bind:this={listElement}>
+<ul class="mt-6 xl:px-96" bind:this={listElement}>
 	{#each aboutUs as item, i (i)}
 		{#if showItems}
 			<li
