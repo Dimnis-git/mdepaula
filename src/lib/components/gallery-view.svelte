@@ -1,56 +1,60 @@
 <script lang="ts">
-	import { backOut } from 'svelte/easing';
-	import { fly } from 'svelte/transition';
-	import Icon from '@iconify/svelte';
+    import { onMount } from 'svelte';
+    import Icon from '@iconify/svelte';
 
-	let {
-		icon,
-		text,
-		images
-	}: {
-		icon: string;
-		text: string;
-		images: {
-			currentImageIndex: number;
-			touchStartX: number;
-			images: {
-				image: string | any;
-				alt: string;
-			}[];
-		};
-	} = $props();
+    let {
+        icon,
+        text,
+        images
+    }: {
+        icon: string;
+        text: string;
+        images: {
+            currentImageIndex: number;
+            touchStartX: number;
+            images: {
+                image: string | any;
+                alt: string;
+            }[];
+        };
+    } = $props();
 
-	let currentImageIndex = $state(0);
-	let touchStartX = $state(0);
-	let swipe = $state<'left' | 'right' | null>(null);
+    let currentImageIndex = $state(0);
+    let touchStartX = $state(0);
+    let swipe = $state<'left' | 'right' | null>(null);
+    let isIOS = $state(false);
 
-	const totalImages = images.images.length;
+    const totalImages = images.images.length;
 
-	function nextImage() {
-		swipe = 'left';
-		currentImageIndex = (currentImageIndex + 1) % totalImages;
-	}
+    onMount(() => {
+        isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    });
 
-	function prevImage() {
-		swipe = 'right';
-		currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
-	}
+    function nextImage() {
+        swipe = 'left';
+        currentImageIndex = (currentImageIndex + 1) % totalImages;
+    }
 
-	function handleTouchStart(e: TouchEvent) {
-		touchStartX = e.touches[0].clientX;
-	}
+    function prevImage() {
+        swipe = 'right';
+        currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
+    }
 
-	function handleTouchEnd(e: TouchEvent) {
-		const touchEndX = e.changedTouches[0].clientX;
-		const deltaX = touchEndX - touchStartX;
-		const swipeThreshold = 50; // Minimum distance for a swipe
+    function handleTouchStart(e: TouchEvent) {
+        touchStartX = e.touches[0].clientX;
+    }
 
-		if (deltaX > swipeThreshold) {
-			prevImage();
-		} else if (deltaX < -swipeThreshold) {
-			nextImage();
-		}
-	}
+    function handleTouchEnd(e: TouchEvent) {
+        const touchEndX = e.changedTouches[0].clientX;
+        const deltaX = touchEndX - touchStartX;
+        const swipeThreshold = 50; // Minimum distance for a swipe
+
+        if (deltaX > swipeThreshold) {
+            prevImage();
+        } else if (deltaX < -swipeThreshold) {
+            nextImage();
+        }
+    }
 </script>
 
 <div
@@ -58,23 +62,25 @@
 	ontouchstart={handleTouchStart}
 	ontouchend={handleTouchEnd}
 >
-	<button
-		onclick={prevImage}
-		class="absolute top-1/2 left-4 z-10 -translate-y-1/2 rounded-full bg-gradient-to-br from-third to-second p-2"
-		aria-label="Previous Image"
-	>
-		<Icon icon="pepicons-print:arrow-left" class="text-lg" />
-	</button>
-	<button
-		onclick={nextImage}
-		class="absolute top-1/2 right-4 z-10 -translate-y-1/2 rounded-full bg-gradient-to-br from-third to-second p-2"
-		aria-label="Next Image"
-	>
-		<Icon icon="pepicons-print:arrow-right" class="text-lg" />
-	</button>
-	<header
-		class="font-cal-sans flex h-12 items-center gap-2 rounded-t-3xl bg-third px-6 text-lg text-black"
-	>
+    {#if !isIOS}
+        <button
+            onclick={prevImage}
+            class="absolute top-1/2 left-4 z-10 -translate-y-1/2 rounded-full bg-gradient-to-br from-third to-second p-2"
+            aria-label="Previous Image"
+        >
+            <Icon icon="pepicons-print:arrow-left" class="text-lg" />
+        </button>
+        <button
+            onclick={nextImage}
+            class="absolute top-1/2 right-4 z-10 -translate-y-1/2 rounded-full bg-gradient-to-br from-third to-second p-2"
+            aria-label="Next Image"
+        >
+            <Icon icon="pepicons-print:arrow-right" class="text-lg" />
+        </button>
+    {/if}
+    <header
+        class="font-cal-sans flex h-12 items-center gap-2 rounded-t-3xl bg-third px-6 text-lg text-black"
+    >
 		<Icon {icon} class="text-lg" />
 		<p class="font-figtree font-medium">{text}</p>
 	</header>
